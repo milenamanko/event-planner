@@ -1,13 +1,12 @@
 package com.example.eventplanner.entity;
 
+import com.example.eventplanner.entity.Recipe.Dish;
+import com.example.eventplanner.entity.Recipe.Drink;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -25,9 +24,12 @@ public class Event {
 
     private LocalDateTime dateTime;
 
+    @ManyToMany
     private List<Guest> guestList;
 
+    @ManyToMany
     private List<Dish> dishes;
 
+    @ManyToMany
     private List<Drink> drinks;
 }

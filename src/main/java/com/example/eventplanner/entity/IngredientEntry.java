@@ -3,22 +3,21 @@ package com.example.eventplanner.entity;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Getter
 @Setter
-public class IngredientDish {
+public class IngredientEntry {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private Long dishId;
+    @ManyToOne
+    private Long recipeId;
 
+    @ManyToOne
     private Long ingredientId;
 
     private Integer quantity;

@@ -3,11 +3,9 @@ package com.example.eventplanner.entity;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Getter
@@ -18,8 +16,6 @@ public class Ingredient {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private Long ingredientDishId;
-
     private String name;
 
     private BigDecimal price;
@@ -27,4 +23,7 @@ public class Ingredient {
     private Integer packagingQuantity;
 
     private QuantityUnit unit;
+
+    @OneToMany
+    private List<IngredientEntry> dishes;
 }

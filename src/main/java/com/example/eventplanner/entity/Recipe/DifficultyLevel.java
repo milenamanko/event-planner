@@ -1,4 +1,4 @@
-package com.example.eventplanner.entity;
+package com.example.eventplanner.entity.Recipe;
 
 public enum DifficultyLevel {
 
